@@ -1,0 +1,44 @@
+===== My CPU =====
+Model name:                              11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+NAME ONE-SIZE ALL-SIZE WAYS TYPE        LEVEL  SETS PHY-LINE COHERENCY-SIZE
+L1d       48K     192K   12 Data            1    64        1             64
+L1i       32K     128K    8 Instruction     1    64        1             64
+L2       1.3M       5M   20 Unified         2  1024        1             64
+L3         8M       8M    8 Unified         3 16384        1             64
+
+===== Step 1: Build =====
+Build OK
+
+===== Step 2: Tests (hand-checked answers) =====
+PASS  Direct-mapped conflict   expected MHMM, got MHMM
+PASS  2-way LRU replacement    expected MMHMHM, got MMHMHM
+
+ALL TESTS PASSED
+
+===== Step 3: Real timings on this laptop (1024 x 1024) =====
+Version: naive   Size: 1024 x 1024   Tile: 32   Time: 7282.45 ms   Checksum: 805304066.375000
+Version: interchange   Size: 1024 x 1024   Tile: 32   Time: 949.399 ms   Checksum: 805304066.375000
+Version: tiled   Size: 1024 x 1024   Tile: 32   Time: 605.733 ms   Checksum: 805304066.375000
+
+===== Step 4: Cache simulation (512 x 512, this laptop's caches) =====
+=== Simulated caches for: naive   Size: 512 x 512   Tile: 32 ===
+L1 data cache: 268697600 accesses, 133888511 hits, 134809089 misses, hit rate = 49.8287%
+L2 cache     : 134809089 accesses, 38400 hits, 134770689 misses, hit rate = 0.0284847%
+L3 cache     : 134770689 accesses, 134672382 hits, 98307 misses, hit rate = 99.9271%
+Trips to RAM (L3 misses): 98307
+Checksum: 100662527.125000
+
+=== Simulated caches for: interchange   Size: 512 x 512   Tile: 32 ===
+L1 data cache: 402915328 accesses, 386072062 hits, 16843266 misses, hit rate = 95.8197%
+L2 cache     : 16843266 accesses, 0 hits, 16843266 misses, hit rate = 0%
+L3 cache     : 16843266 accesses, 16744959 hits, 98307 misses, hit rate = 99.4163%
+Trips to RAM (L3 misses): 98307
+Checksum: 100662527.125000
+
+=== Simulated caches for: tiled   Size: 512 x 512   Tile: 32 ===
+L1 data cache: 406847488 accesses, 384565518 hits, 22281970 misses, hit rate = 94.5233%
+L2 cache     : 22281970 accesses, 21691632 hits, 590338 misses, hit rate = 97.3506%
+L3 cache     : 590338 accesses, 492031 hits, 98307 misses, hit rate = 83.3473%
+Trips to RAM (L3 misses): 98307
+Checksum: 100662527.125000
+

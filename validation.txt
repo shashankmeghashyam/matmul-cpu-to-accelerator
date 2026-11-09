@@ -1,0 +1,12 @@
+===== Cachegrind: setup-only 512 =====
+==21639== D1  misses:       212,008  ( 45,697 rd   + 166,311 wr)
+==21639== LLd misses:       107,837  (  7,929 rd   +  99,908 wr)
+===== Cachegrind: naive 512 =====
+==21657== D1  misses:    135,021,106  (134,592,651 rd   +   428,455 wr)
+==21657== LLd misses:        107,839  (      7,932 rd   +    99,907 wr)
+===== Cachegrind: interchange 512 =====
+==21733== D1  misses:       17,055,288  ( 16,888,973 rd   +     166,315 wr)
+==21733== LLd misses:          107,841  (      7,932 rd   +      99,909 wr)
+===== Cachegrind: tiled 512 =====
+==21786== D1  misses:       22,519,057  ( 22,352,747 rd   +     166,310 wr)
+==21786== LLd misses:          107,839  (      7,932 rd   +      99,907 wr)
